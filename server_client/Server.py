@@ -16,13 +16,6 @@ class Server(BaseInterface):
         self.FOR_READ.append(self.srv)
 
 
-
-
-    # def creating_select(self):
-    #
-    #     self.R, self.W, self.ERR = select.select(Server.FOR_READ, Server.FOR_WRITE, Server.FOR_READ)
-
-
     def for_reading(self):
         R, _, _ = select.select(Server.FOR_READ, [], [])
 
@@ -31,7 +24,6 @@ class Server(BaseInterface):
                 client, addr = self.srv.accept()
                 client.setblocking(False)
                 Server.FOR_READ.append(client)
-
             else:
                 try:
                     data = r.recv(2 ** 16)
