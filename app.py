@@ -6,9 +6,8 @@ def main():
     server = Server()
     server.creating_server()
     while True:
-        server.creating_select()
         server.for_reading()
-        server.for_writing()
+
 
 
 
